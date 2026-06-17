@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troca de Senha — demetrius&amp;co</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="troca-page">
+
+  <div class="terminal-bar">
+    <span>~/demetrius&amp;co/auth/troca-senha</span>
+    <span>ssl: ok</span>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="logo demetrius&amp;co" class="logo">
+        <span class="tagline">Área do Cliente<br>Recuperação de Senha</span>
+      </div>
+      <nav aria-label="principal">
+        <a href="index.html">Home</a>
+        <a href="login.html">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <section class="form-panel yg-panel" aria-labelledby="page-title">
+      <div class="panel-head">
+        <img src="assets/logo.svg" alt="logo demetrius&amp;co" class="logo">
+        <h1 id="page-title">Troca de Senha</h1>
+        <p>redefinir acesso</p>
+      </div>
+
+      <div class="panel-body">
+        <form id="form-troca" novalidate>
+          <div class="field">
+            <label for="login">Login (email)</label>
+            <input type="email" id="login" name="login" placeholder="voce@empresa.com.br">
+          </div>
+
+          <div class="field">
+            <label for="senha">Nova Senha</label>
+            <input type="password" id="senha" name="senha">
+          </div>
+
+          <div class="field">
+            <label for="senha2">Confirmação de Senha</label>
+            <input type="password" id="senha2" name="senha2">
+          </div>
+
+          <div class="field">
+            <label>Regras de Composição</label>
+            <div id="rules" class="rules-box" aria-live="polite"></div>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="btn-trocar">Trocar Senha</button>
+            <button type="button" id="btn-limpar">Limpar</button>
+          </div>
+
+          <div id="msg" class="msg-box" role="status" aria-live="polite">// aguardando entrada&hellip;</div>
+
+          <div class="extra-links">
+            <a href="login.html">&laquo; Voltar para Login</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-bottom">Copyright &copy; 1998–2026 demetrius&amp;co. Conexão segura via SSL.</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/validators.js"></script>
+  <script src="js/troca-senha.js"></script>
+</body>
+</html>

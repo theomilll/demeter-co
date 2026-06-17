@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitação de Serviços — demetrius&amp;co</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="cart-page">
+
+  <div class="terminal-bar">
+    <span>~/demetrius&amp;co/clientes/carrinho</span>
+    <span>sess: ativa &middot; 238 clientes online</span>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="logo demetrius&amp;co" class="logo">
+        <span class="tagline">Área do Cliente<br>Nova Solicitação</span>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#" id="btn-logout">Sair</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <table class="portal-grid" role="presentation">
+      <tbody>
+        <tr>
+
+          <!-- ========== LEFT SIDEBAR ========== -->
+          <td class="col-left">
+
+            <section class="yg-panel sidebar" aria-label="usuário logado">
+              <div class="yg-title">Minha Conta</div>
+              <ul class="user-summary-list">
+                <li>
+                  <span class="lbl">Nome</span>
+                  <span class="val" id="u-nome">Adaury Neto</span>
+                </li>
+                <li>
+                  <span class="lbl">Login</span>
+                  <span class="val" id="u-login">adaury@fixo.com</span>
+                </li>
+                <li>
+                  <span class="lbl">Status</span>
+                  <span class="val"><strong class="red">&bull; ativa</strong></span>
+                </li>
+                <li class="logout-row">
+                  <a href="#" id="btn-logout-side"><strong>Sair da Conta &raquo;</strong></a>
+                </li>
+              </ul>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Atalhos</div>
+              <ul class="yg-sidebar-list">
+                <li><a href="#tabela-pedidos">Minhas Solicitações</a></li>
+                <li><a href="#nova">Nova Solicitação</a></li>
+                <li><a href="troca-senha.html">Trocar Senha</a></li>
+                <li><a href="index.html">Voltar para Home</a></li>
+              </ul>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Suporte</div>
+              <div class="yg-body small">
+                <p><strong>(21) 3344-5566</strong></p>
+                <p class="muted">24/7 &middot; português</p>
+                <p style="margin-top:4px;"><a href="mailto:suporte@demetrius.co">suporte@demetrius.co</a></p>
+              </div>
+            </section>
+
+          </td>
+
+          <!-- ========== CENTER MAIN ========== -->
+          <td class="col-main">
+
+            <section class="yg-panel">
+              <div class="yg-title">Minhas Solicitações <span class="meta">histórico</span></div>
+              <div class="yg-body flush">
+                <table class="cart-table" id="tabela-pedidos">
+                  <thead>
+                    <tr>
+                      <th>Data Pedido</th>
+                      <th>Nº</th>
+                      <th>Serviço</th>
+                      <th>Status</th>
+                      <th>Preço</th>
+                      <th>Data Prevista</th>
+                      <th>&nbsp;</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tbody-pedidos">
+                    <!-- preenchido via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section id="nova" class="yg-panel">
+              <div class="yg-title">Nova Solicitação</div>
+              <div class="yg-body">
+
+                <div class="field" style="max-width:400px; margin-bottom:10px;">
+                  <label for="servico">Serviço de TI</label>
+                  <select id="servico"></select>
+                </div>
+
+                <table class="new-request-table" role="presentation">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <span class="lbl">Preço</span>
+                        <span class="val" id="out-preco">&mdash;</span>
+                      </td>
+                      <td>
+                        <span class="lbl">Prazo de Atendimento</span>
+                        <span class="val" id="out-prazo">&mdash;</span>
+                      </td>
+                      <td>
+                        <span class="lbl">Data Prevista</span>
+                        <span class="val" id="out-data">&mdash;</span>
+                      </td>
+                      <td>
+                        <span class="lbl">Status</span>
+                        <span class="val" id="out-status">EM ELABORAÇÃO</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div class="new-request-actions">
+                  <button type="button" id="btn-incluir">Incluir Solicitação</button>
+                </div>
+              </div>
+            </section>
+
+          </td>
+
+          <!-- ========== RIGHT SIDEBAR ========== -->
+          <td class="col-right">
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Serviços Populares</div>
+              <ul class="yg-crosslink-list">
+                <li>
+                  <div class="thumb"><img src="assets/servicos/cloud.svg" alt=""></div>
+                  <div>
+                    <strong>Cloud Migration</strong>
+                    <div class="small muted">R$ 4.500</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="thumb"><img src="assets/servicos/shield.svg" alt=""></div>
+                  <div>
+                    <strong>Pentest Completo</strong>
+                    <div class="small muted">R$ 7.200</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="thumb"><img src="assets/servicos/code.svg" alt=""></div>
+                  <div>
+                    <strong>Dev Squad</strong>
+                    <div class="small muted">R$ 12.000/mês</div>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Dica do Sysadmin</div>
+              <div class="yg-body small">
+                <p style="color:var(--accent-red); font-weight:bold;">&raquo; Backup first.</p>
+                <p class="muted">Toda nova solicitação de infra já inclui snapshot automático dos 7 dias anteriores, grátis.</p>
+              </div>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Uptime Atual</div>
+              <div class="yg-body" style="text-align:center;">
+                <div style="background:#0a1128; border:1px solid var(--panel-border); padding:8px; color:#ffcc00;">
+                  <div style="font-family:'Courier New', monospace; font-size:16px; font-weight:bold;">99.997%</div>
+                  <div style="font-size:9px; color:#fff; margin-top:2px;">últimos 90 dias</div>
+                </div>
+              </div>
+            </section>
+
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-bottom">Copyright &copy; 1998–2026 demetrius&amp;co. &middot; Sessão registrada em log seguro.</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/carrinho.js"></script>
+  <script>
+    // duplicate logout hook for the sidebar logout link
+    document.addEventListener('DOMContentLoaded', function() {
+      var side = document.getElementById('btn-logout-side');
+      var main = document.getElementById('btn-logout');
+      if (side && main) {
+        side.addEventListener('click', function(e) {
+          e.preventDefault();
+          main.click();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

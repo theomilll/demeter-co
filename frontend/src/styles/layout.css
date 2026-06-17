@@ -1,0 +1,1021 @@
+/* ============================================================
+   demetrius&co — layout.css
+   Yahoo! Games 2002 portal: panels, portal grid, headers,
+   tables, forms, cart. Everything is a table or a yg-panel.
+   ============================================================ */
+
+/* ============================================================
+   TOP PATH / BREADCRUMB BAR
+   (replaces the old .terminal-bar — keeps the class so the JS
+    and existing HTML still hook it)
+   ============================================================ */
+.terminal-bar {
+  background: #f0f0f0;
+  border-bottom: 1px solid #999;
+  padding: 2px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal-bar .dots { display: none; }
+
+/* ============================================================
+   SITE HEADER — navy title bar + periwinkle subnav
+   ============================================================ */
+.site-header {
+  background: var(--bg-body);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.site-header .container {
+  padding: 0;
+  max-width: 980px;
+}
+
+/* blue title strip: "demetrius&co" + clientes online counter */
+.site-header::before {
+  content: "demetrius&co    ·    Infraestrutura de TI";
+  display: block;
+  background: var(--navy);
+  color: #fff;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 4px 12px;
+  letter-spacing: 0.3px;
+}
+
+.site-header .container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: var(--space-4);
+  padding: 6px 10px;
+  background: var(--periwinkle);
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.site-header img.logo {
+  height: 36px;
+  width: auto;
+  background: #fff;
+  border: 1px solid var(--panel-border);
+  padding: 2px;
+}
+
+.site-header .tagline {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--text-label);
+  line-height: 1.3;
+  font-weight: bold;
+}
+
+.site-header nav {
+  justify-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  font-size: 11px;
+}
+
+.site-header nav a {
+  padding: 2px 8px;
+  color: var(--link);
+  text-decoration: underline;
+  font-weight: bold;
+  border: none;
+  background: transparent;
+}
+
+.site-header nav a + a {
+  border-left: 1px solid var(--panel-border);
+}
+
+.site-header nav a:hover {
+  color: var(--link-hover);
+  background: transparent;
+}
+
+/* generic auth-state visibility */
+.logged-only { display: none !important; }
+body.logged .logged-only { display: revert !important; }
+body.logged .not-logged-only { display: none !important; }
+/* keep header nav logged-only link orange */
+body.logged .site-header nav a.logged-only { color: #c60; }
+/* drop the divider between hidden and visible nav anchors */
+.site-header nav a.not-logged-only + a,
+body.logged .site-header nav a.logged-only + a.not-logged-only { border-left: none; }
+
+/* right-aligned "clientes online" counter */
+.clientes-online {
+  font-size: 10px;
+  color: #fff;
+  font-weight: normal;
+  float: right;
+  margin-top: -20px;
+  margin-right: 12px;
+}
+
+/* ============================================================
+   PAGE BODY CHROME — the white portal frame
+   ============================================================ */
+main {
+  background: var(--bg-body);
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 6px;
+  border-left: 1px solid var(--panel-border);
+  border-right: 1px solid var(--panel-border);
+  min-height: 60vh;
+}
+
+.index-page main,
+.cart-page main {
+  padding: 6px;
+}
+
+/* ============================================================
+   YG-PANEL — universal panel component
+   navy title bar + white body, 1px border
+   ============================================================ */
+.yg-panel {
+  border: 1px solid var(--panel-border);
+  margin-bottom: 8px;
+  background: var(--bg-body);
+}
+
+.yg-panel > .yg-title {
+  background: var(--navy);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 8px;
+  line-height: 1.3;
+  border-bottom: 1px solid var(--navy-darker);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.yg-panel > .yg-title .meta {
+  font-weight: normal;
+  font-size: 10px;
+  color: #dbe2f5;
+}
+
+.yg-panel > .yg-body {
+  padding: 8px;
+  background: var(--bg-body);
+}
+
+.yg-panel > .yg-body.flush { padding: 0; }
+
+.yg-panel > .yg-body.periwinkle { background: var(--periwinkle-pale); }
+
+/* panel with a centered title bar, used for sidebar panels */
+.yg-panel.sidebar > .yg-title {
+  justify-content: center;
+  text-align: center;
+  font-size: 11px;
+}
+
+/* ============================================================
+   PORTAL GRID — 3 column layout (table-based, like Y! Games)
+   Left sidebar / center content / right sidebar
+   ============================================================ */
+.portal-grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.portal-grid > tbody > tr > td {
+  vertical-align: top;
+  padding: 0 4px;
+}
+
+.portal-grid .col-left { width: 180px; }
+.portal-grid .col-main { width: auto; }
+.portal-grid .col-right { width: 210px; }
+
+/* sidebar vertical nav list */
+.yg-sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: var(--periwinkle-pale);
+}
+
+.yg-sidebar-list li {
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--periwinkle-mid);
+  font-size: 11px;
+}
+
+.yg-sidebar-list li:last-child { border-bottom: none; }
+
+.yg-sidebar-list li a {
+  color: var(--link);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.yg-sidebar-list li a:hover {
+  color: var(--link-hover);
+}
+
+/* ============================================================
+   FEATURED BOX — dark content grid with yellow ribbon
+   Mirrors "Yahoo! Games Presents" Solitaire/Hearts cell grid
+   ============================================================ */
+.yg-featured {
+  background: #0a1128;
+  padding: 0;
+  position: relative;
+}
+
+.yg-featured .featured-grid {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
+}
+
+.yg-featured .featured-grid td {
+  vertical-align: middle;
+  padding: 10px 8px;
+  border: 1px solid #1e2d52;
+  text-align: center;
+  width: 25%;
+}
+
+.yg-featured .featured-grid td.brand-cell {
+  background: #0a1128;
+  padding: 14px 8px;
+  text-align: left;
+}
+
+.yg-featured .featured-grid .ribbon {
+  display: inline-block;
+  background: var(--accent-yellow);
+  color: #111;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.yg-featured .featured-grid a.tile-link {
+  display: block;
+  color: var(--accent-yellow);
+  font-weight: bold;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.yg-featured .featured-grid a.tile-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.yg-featured .featured-grid .tile-sub {
+  display: block;
+  color: #e9c200;
+  font-size: 9px;
+  margin-top: 2px;
+}
+
+.yg-featured .featured-grid .wordmark {
+  font-family: var(--font-body);
+  font-weight: 900;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.yg-featured .featured-grid .wordmark .amp { color: var(--accent-red); }
+
+.yg-featured .featured-grid .wordmark-sub {
+  display: block;
+  font-size: 10px;
+  color: #a9b9e4;
+  font-weight: normal;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+.yg-featured .featured-grid .now-available {
+  display: block;
+  font-size: 10px;
+  color: #fff;
+  margin-top: 6px;
+  line-height: 1.2;
+}
+
+.yg-featured .featured-grid .cta {
+  display: inline-block;
+  margin-top: 6px;
+  background: #ffcc00;
+  color: #000;
+  font-weight: bold;
+  font-size: 10px;
+  padding: 2px 8px;
+  text-decoration: none;
+}
+
+.yg-featured .featured-grid .cta:hover {
+  background: #fff;
+  color: #cc0000;
+}
+
+/* ============================================================
+   FEATURED-GAME (single right-sidebar panel, Robin Hood slot)
+   ============================================================ */
+.yg-featured-game {
+  text-align: center;
+  padding: 0;
+}
+
+.yg-featured-game .img-frame {
+  background: linear-gradient(#1b2a5c, #0a1128);
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--panel-border);
+  color: #fff;
+}
+
+.yg-featured-game .img-frame .title {
+  font-weight: bold;
+  font-size: 12px;
+  color: var(--accent-yellow);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.yg-featured-game .img-frame .pseudo-poster {
+  display: block;
+  height: 70px;
+  background:
+    repeating-linear-gradient(90deg, #2a3a6b 0 6px, #1b2a5c 6px 12px),
+    #1b2a5c;
+  border: 1px solid var(--accent-yellow);
+  margin: 0 auto;
+  position: relative;
+}
+
+.yg-featured-game .img-frame .pseudo-poster::after {
+  content: "</>";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-yellow);
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.yg-featured-game .img-frame .subtitle {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #cfd9ee;
+}
+
+/* ============================================================
+   HISTORIA (scrollable story box)
+   ============================================================ */
+.historia-box {
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 6px 10px;
+  background: var(--bg-body);
+  border: 1px solid var(--periwinkle-mid);
+  font-size: 11px;
+}
+
+.historia-box p {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--text);
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+.historia-box p:last-child { margin-bottom: 0; }
+
+/* ============================================================
+   VIDEO
+   ============================================================ */
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  border: 1px solid var(--panel-border);
+  background: #000;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ============================================================
+   GALERIA (2x2 thumbnails table)
+   ============================================================ */
+.galeria-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.galeria-table td {
+  width: 50%;
+  padding: 4px;
+  vertical-align: top;
+  text-align: center;
+  background: var(--periwinkle-pale);
+  border: 1px solid var(--periwinkle-mid);
+}
+
+.galeria-table td:hover {
+  background: #fffbe0;
+  border-color: var(--accent-yellow-dark);
+}
+
+.galeria-table img {
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  display: block;
+  border: 1px solid var(--panel-border);
+}
+
+.galeria-table .cap {
+  display: block;
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 11px;
+  color: var(--link);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ============================================================
+   SERVICOS — 2 column split table (Card Games / Arcade style)
+   ============================================================ */
+.servicos-split {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.servicos-split > tbody > tr > td {
+  vertical-align: top;
+  padding: 0;
+  width: 50%;
+}
+
+.servicos-split > tbody > tr > td:first-child {
+  border-right: 1px solid var(--periwinkle-mid);
+}
+
+.servicos-col-title {
+  background: var(--periwinkle);
+  color: var(--text-label);
+  font-weight: bold;
+  font-size: 11px;
+  text-align: center;
+  padding: 3px 6px;
+  border-bottom: 1px solid var(--panel-border);
+}
+
+.servicos-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.servicos-list li {
+  padding: 4px 8px;
+  border-bottom: 1px dotted var(--periwinkle-mid);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.servicos-list li:last-child { border-bottom: none; }
+
+.servicos-list li img.icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.servicos-list li .s-name {
+  font-weight: bold;
+  color: var(--link);
+  text-decoration: underline;
+}
+
+.servicos-list li .s-count {
+  color: var(--text-muted);
+  font-size: 10px;
+}
+
+.servicos-list li .s-new {
+  color: var(--accent-red);
+  font-weight: bold;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.servicos-list li:hover {
+  background: var(--periwinkle-pale);
+}
+
+/* ============================================================
+   FOUNDERS TABLE
+   ============================================================ */
+.founders-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-body);
+}
+
+.founders-table caption {
+  display: none;
+}
+
+.founders-table th,
+.founders-table td {
+  border: 1px solid var(--panel-border);
+  padding: 3px 8px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 11px;
+}
+
+.founders-table th {
+  background: var(--periwinkle);
+  color: var(--text-label);
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.founders-table tr:nth-child(even) td {
+  background: var(--periwinkle-pale);
+}
+
+.founders-table tr:hover td {
+  background: #fffbe0;
+}
+
+/* ============================================================
+   HERO as featured panel — big wordmark block at top
+   (keeps .hero class for HTML compatibility)
+   ============================================================ */
+.hero {
+  padding: 0;
+  border: none;
+  background: transparent;
+  text-align: left;
+}
+
+.hero h1 {
+  display: none; /* wordmark moved into yg-featured brand cell */
+}
+
+.hero .hero-sub {
+  display: block;
+  font-size: 11px;
+  color: var(--text);
+  padding: 6px 8px;
+  background: var(--periwinkle-pale);
+  border-top: 1px solid var(--panel-border);
+}
+
+.hero .cursor::after { display: none; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--periwinkle);
+  border-top: 1px solid var(--panel-border);
+  padding: 10px 0;
+  margin-top: 12px;
+}
+
+.site-footer .container {
+  max-width: 980px;
+}
+
+.footer-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-body);
+  border: 1px solid var(--panel-border);
+}
+
+.footer-table td {
+  width: 33.33%;
+  vertical-align: top;
+  padding: 6px 10px;
+  border: 1px solid var(--periwinkle-mid);
+  font-size: 11px;
+}
+
+.footer-table h3 {
+  font-size: 11px;
+  margin-bottom: 4px;
+  color: var(--text-label);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--periwinkle-mid);
+  padding-bottom: 2px;
+}
+
+.footer-table ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-table ul li {
+  padding: 2px 0;
+  font-size: 11px;
+}
+
+.footer-table h3 + p,
+.footer-table h3 + ul {
+  margin-top: 4px;
+}
+
+.payments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.payments img {
+  width: 44px;
+  height: 28px;
+  background: #fff;
+  border: 1px solid var(--panel-border);
+  padding: 1px;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   FORM PAGES (login, cadastro, troca-senha)
+   ============================================================ */
+.form-page {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 18px var(--space-3);
+  background: var(--bg-page);
+}
+
+/* turn the existing .form-panel into a yg-panel look */
+.form-panel {
+  background: var(--bg-body);
+  border: 1px solid var(--panel-border);
+  padding: 0;
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 2px 2px 0 rgba(43, 56, 96, 0.18);
+  position: relative;
+}
+
+.form-panel::before,
+.form-panel::after {
+  content: none;
+}
+
+.form-panel .panel-head {
+  background: var(--navy);
+  color: #fff;
+  padding: 4px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--navy-darker);
+}
+
+.form-panel .panel-head img.logo {
+  height: 18px;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid var(--panel-border);
+  padding: 1px;
+  margin-right: 6px;
+}
+
+.form-panel .panel-head h1 {
+  font-size: 12px;
+  margin: 0;
+  display: inline;
+  color: #fff;
+  font-weight: bold;
+}
+
+.form-panel .panel-head p {
+  color: #d0d9f0;
+  font-size: 10px;
+  margin: 0;
+  display: inline;
+  margin-left: 6px;
+}
+
+.form-panel .panel-body {
+  padding: 12px;
+}
+
+.form-panel .field {
+  margin-bottom: 8px;
+}
+
+.form-panel .field label {
+  display: block;
+  margin-bottom: 2px;
+}
+
+.form-panel .actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--periwinkle-mid);
+}
+
+.form-panel .actions button { flex: 0 0 auto; min-width: 100px; }
+
+.form-panel .extra-links {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--periwinkle-mid);
+  text-align: center;
+  font-size: 11px;
+}
+
+.form-panel .extra-links a { margin: 0 6px; }
+
+.msg-box {
+  margin-top: 10px;
+  padding: 6px 8px;
+  background: var(--periwinkle-pale);
+  border: 1px solid var(--periwinkle-mid);
+  font-size: 11px;
+  min-height: 40px;
+  color: var(--text);
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.msg-box.error {
+  border: 1px solid #b00;
+  background: #fff0f0;
+  color: #800;
+}
+
+.msg-box.ok {
+  border: 1px solid #090;
+  background: #f0fff0;
+  color: #070;
+}
+
+.rules-box {
+  background: #fffbe0;
+  border: 1px solid var(--accent-yellow-dark);
+  padding: 6px 8px;
+  font-size: 10px;
+  color: #554400;
+  max-height: 120px;
+  overflow-y: auto;
+  margin-bottom: 8px;
+}
+
+.rules-box strong { color: #222; }
+
+.form-panel .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.form-panel .radio-group label {
+  font-weight: normal;
+  font-size: 11px;
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+}
+
+.form-panel .radio-group input[type="radio"] {
+  width: auto;
+  accent-color: var(--navy);
+}
+
+/* ============================================================
+   CARRINHO
+   ============================================================ */
+.cart-page main {
+  padding: 6px;
+}
+
+.user-summary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 11px;
+}
+
+.user-summary-list li {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--periwinkle-mid);
+  background: var(--periwinkle-pale);
+}
+
+.user-summary-list li:last-child { border-bottom: none; }
+
+.user-summary-list .lbl {
+  display: block;
+  font-weight: bold;
+  font-size: 10px;
+  color: var(--text-label);
+  text-transform: uppercase;
+  margin-bottom: 1px;
+}
+
+.user-summary-list .val {
+  display: block;
+  color: var(--text);
+  font-size: 11px;
+  word-break: break-all;
+}
+
+.user-summary-list .logout-row {
+  text-align: center;
+  background: var(--periwinkle);
+  padding: 6px 8px;
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  background: var(--bg-body);
+}
+
+.cart-table th,
+.cart-table td {
+  border: 1px solid var(--panel-border);
+  padding: 3px 6px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.cart-table th {
+  background: var(--periwinkle);
+  color: var(--text-label);
+  font-weight: bold;
+  font-size: 11px;
+}
+
+.cart-table tr:nth-child(even) td {
+  background: var(--periwinkle-pale);
+}
+
+.cart-table tr:hover td {
+  background: #fffbe0;
+}
+
+.cart-table .btn-del {
+  font-size: 10px;
+  padding: 1px 8px;
+  background: #ece9d8;
+  color: #a00;
+  font-weight: bold;
+}
+
+.cart-table .btn-del:hover {
+  background: #fff0f0;
+  color: #d00;
+}
+
+.new-request-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+}
+
+.new-request-table td {
+  width: 25%;
+  border: 1px solid var(--panel-border);
+  padding: 5px 8px;
+  vertical-align: top;
+  background: var(--periwinkle-pale);
+  font-size: 11px;
+}
+
+.new-request-table td .lbl {
+  display: block;
+  font-weight: bold;
+  font-size: 10px;
+  color: var(--text-label);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.new-request-table td .val {
+  display: block;
+  font-size: 11px;
+  color: var(--text);
+}
+
+.new-request-actions {
+  margin-top: 10px;
+  text-align: right;
+  padding-top: 8px;
+  border-top: 1px solid var(--periwinkle-mid);
+}
+
+/* ============================================================
+   MINI-PANELS / quick cross-link lists (right sidebar on index)
+   ============================================================ */
+.yg-crosslink-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.yg-crosslink-list li {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--periwinkle-mid);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.yg-crosslink-list li:last-child { border-bottom: none; }
+
+.yg-crosslink-list li .thumb {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: var(--periwinkle-pale);
+  border: 1px solid var(--panel-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.yg-crosslink-list li .thumb img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.yg-crosslink-list li a {
+  font-weight: bold;
+  color: var(--link);
+}
+
+.more-link {
+  display: block;
+  text-align: right;
+  padding: 4px 8px;
+  background: var(--periwinkle);
+  font-size: 10px;
+  font-weight: bold;
+  border-top: 1px solid var(--panel-border);
+}

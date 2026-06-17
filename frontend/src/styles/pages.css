@@ -1,0 +1,93 @@
+/* ============================================================
+   demetrius&co — pages.css
+   Page-specific tweaks + responsive collapse
+   ============================================================ */
+
+/* id selectors — kept for the AV1 specificity demo */
+#page-title { letter-spacing: 0; }
+#tabela-pedidos { margin-top: 4px; }
+
+/* pseudo-class :not */
+.servicos-list li:not(.featured) .s-name { color: var(--link); }
+
+/* pseudo-class :nth-child — zebra on founders table (backup if layout.css is purged) */
+.founders-table tbody tr:nth-child(even) td {
+  background: var(--periwinkle-pale);
+}
+
+/* pseudo-class :first-of-type */
+main > section:first-of-type { border-top: none; }
+
+/* general sibling combinator ~ */
+.form-panel .field input:focus ~ .hint { color: var(--navy); }
+
+/* footer link overrides */
+.site-footer a { color: var(--link); }
+.site-footer a:hover { color: var(--link-hover); }
+
+/* cadastro page: wider form panel, 2-column field grid */
+.cadastro-page .form-panel {
+  max-width: 620px;
+}
+
+.cadastro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px 12px;
+}
+
+.cadastro-grid .full { grid-column: 1 / -1; }
+
+/* ============================================================
+   RESPONSIVE — collapse the 3-col portal-grid on narrow screens
+   ============================================================ */
+@media (max-width: 780px) {
+  .portal-grid,
+  .portal-grid > tbody,
+  .portal-grid > tbody > tr,
+  .portal-grid > tbody > tr > td {
+    display: block;
+    width: 100% !important;
+  }
+
+  .portal-grid > tbody > tr > td {
+    padding: 0;
+  }
+
+  .footer-table,
+  .footer-table tbody,
+  .footer-table tr,
+  .footer-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .site-header .container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .site-header nav {
+    justify-self: center;
+  }
+
+  .galeria-table,
+  .galeria-table tbody,
+  .galeria-table tr,
+  .galeria-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .cadastro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .new-request-table,
+  .new-request-table tbody,
+  .new-request-table tr,
+  .new-request-table td {
+    display: block;
+    width: 100%;
+  }
+}

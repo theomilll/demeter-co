@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demetrius&amp;co — Infraestrutura de TI</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <style>
+    /* Demonstração de <style> inline (requisito técnico AV1).
+       Sobrescreve regras de base.css/layout.css por especificidade. */
+    .index-page .yg-featured .featured-grid .wordmark { color: #ffcc00; }
+    .index-page .yg-panel.historia > .yg-title { background: #2a4280; }
+    .index-page .founders-table caption { display: none; }
+  </style>
+</head>
+<body class="index-page">
+
+  <div class="terminal-bar">
+    <span>~/demetrius&amp;co/home</span>
+    <span>238 clientes online</span>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="logo demetrius&amp;co" class="logo">
+        <span class="tagline">Infra de TI<br>Desde os anos do modem 56k</span>
+      </div>
+      <nav aria-label="principal">
+        <a href="login.html" class="not-logged-only">Login</a>
+        <a href="cadastro.html" class="not-logged-only">Cadastrar</a>
+        <a href="carrinho.html" class="logged-only">Solicitar Serviço</a>
+        <a href="#" class="logged-only" data-action="logout">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <table class="portal-grid" role="presentation">
+      <tbody>
+        <tr>
+
+          <!-- ========== LEFT SIDEBAR ========== -->
+          <td class="col-left">
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Inside demetrius&amp;co</div>
+              <ul class="yg-sidebar-list">
+                <li><a href="#historia">História da Casa</a></li>
+                <li><a href="#video">Vídeo Institucional</a></li>
+                <li><a href="#galeria">Instalações</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#fundadores">Fundadores</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li class="logged-only"><a href="carrinho.html">Nova Solicitação</a></li>
+              </ul>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Minha Conta</div>
+              <div class="yg-body" style="text-align:center;">
+                <div class="not-logged-only">
+                  <p style="margin-bottom:6px;"><strong>Você não está logado.</strong></p>
+                  <p style="font-size:10px; color:#555; margin-bottom:8px;">Entre para abrir chamados e acompanhar suas solicitações.</p>
+                  <p><a href="login.html">Fazer Login</a> &middot; <a href="cadastro.html">Cadastrar</a></p>
+                </div>
+                <div class="logged-only">
+                  <p style="margin-bottom:6px;"><strong style="color:#070;">Você está logado.</strong></p>
+                  <p style="font-size:10px; color:#555; margin-bottom:8px;">Sessão ativa. Acompanhe suas solicitações no carrinho.</p>
+                  <p><a href="carrinho.html">Minhas Solicitações</a></p>
+                  <p style="margin-top:6px;"><a href="#" data-action="logout"><strong>Sair da Conta &raquo;</strong></a></p>
+                </div>
+              </div>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Domínio da Semana</div>
+              <div class="yg-body" style="text-align:center;">
+                <div style="background:#0a1128; border:1px solid var(--panel-border); padding:10px 6px; color:#ffcc00; font-weight:bold; font-size:11px;">
+                  <div style="font-family:'Courier New', monospace; font-size:18px;">$ uptime</div>
+                  <div style="font-size:10px; color:#fff; margin-top:4px;">99.997% — 4 data centers privados</div>
+                </div>
+                <p class="small" style="margin-top:6px;"><a href="#servicos">Ver nossos serviços &raquo;</a></p>
+              </div>
+            </section>
+
+          </td>
+
+          <!-- ========== CENTER MAIN ========== -->
+          <td class="col-main">
+
+            <!-- HERO / FEATURED -->
+            <section class="hero yg-panel">
+              <div class="yg-title">demetrius&amp;co Presents</div>
+              <div class="yg-body flush yg-featured">
+                <table class="featured-grid" role="presentation">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <a class="tile-link" href="#servicos">Cloud</a>
+                        <span class="tile-sub">AWS · GCP</span>
+                      </td>
+                      <td>
+                        <a class="tile-link" href="#servicos">Cybersec</a>
+                        <span class="tile-sub">Pentest</span>
+                      </td>
+                      <td>
+                        <a class="tile-link" href="#servicos">Redes</a>
+                        <span class="tile-sub">Corporativas</span>
+                      </td>
+                      <td rowspan="2" class="brand-cell">
+                        <span class="ribbon">FEATURED</span>
+                        <span class="wordmark">demetrius<span class="amp">&amp;</span>co</span>
+                        <span class="wordmark-sub">nós rodamos<br>seu back-office</span>
+                        <span class="now-available">Suporte, cloud, segurança<br>e redes — 24/7</span>
+                        <a class="cta logged-only" href="carrinho.html">Solicitar &raquo;</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <a class="tile-link" href="#servicos">Infra</a>
+                        <span class="tile-sub">Servidores</span>
+                      </td>
+                      <td>
+                        <a class="tile-link" href="#servicos">DevOps</a>
+                        <span class="tile-sub">CI/CD</span>
+                      </td>
+                      <td>
+                        <a class="tile-link" href="#servicos">Squad</a>
+                        <span class="tile-sub">Dev sob demanda</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="hero-sub">
+                Suporte, cloud, segurança e redes — <strong>24/7</strong>, com a mesma mão de obra <em>raiz</em> que configurou o primeiro servidor da sua cidade em 1998.
+              </p>
+            </section>
+
+            <!-- HISTORIA -->
+            <section id="historia" class="yg-panel historia">
+              <div class="yg-title">História da Casa <span class="meta">// desde 1998</span></div>
+              <div class="yg-body">
+                <div class="historia-box">
+                  <p>Em 1998, num <strong>quartinho</strong> de 9 m² nos fundos de uma locadora de vídeo em Niterói, os três sócios da demetrius&amp;co instalaram seu primeiro Pentium II com 64MB de RAM e começaram a prestar suporte técnico para pequenos comércios do bairro. A primeira conta foi um <em>mercadinho</em> que precisava imprimir nota fiscal via DOS.</p>
+                  <p>Em 2004, já éramos 8 pessoas e atendíamos 120 clientes de pequeno e médio porte. Fomos a <strong>primeira empresa</strong> da região a oferecer backup em fita DAT com monitoramento remoto via modem discado. Os clientes achavam mágica. A gente sabia que era <em>shell script bem escrito</em>.</p>
+                  <p>Hoje, 27 anos depois, operamos 4 data centers privados, 200+ servidores em produção e um time de 38 engenheiros. Continuamos achando que a melhor infra é aquela que o cliente <strong>não precisa lembrar que existe</strong>. E continuamos escrevendo shell script.</p>
+                  <p>Este texto é propositalmente longo para demonstrar o requisito de <em>barra de rolagem automática</em> numa porção de conteúdo extenso. O container acima tem <strong>overflow:auto</strong> aplicado via CSS, com altura máxima fixa. Você pode rolar à vontade. A rolagem é controlada pelo seletor <mark>.historia-box</mark> em <code>layout.css</code>.</p>
+                </div>
+              </div>
+            </section>
+
+            <!-- VIDEO -->
+            <section id="video" class="yg-panel">
+              <div class="yg-title">Vídeo Institucional</div>
+              <div class="yg-body">
+                <div class="video-wrapper">
+                  <iframe
+                    src="https://www.youtube.com/embed/TibnEtHdJxc"
+                    title="vídeo institucional demetrius&amp;co"
+                    allowfullscreen
+                    loading="lazy"></iframe>
+                </div>
+              </div>
+            </section>
+
+            <!-- GALERIA -->
+            <section id="galeria" class="yg-panel">
+              <div class="yg-title">Nossas Instalações <span class="meta">4 fotos</span></div>
+              <div class="yg-body flush">
+                <table class="galeria-table" role="presentation">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <img src="assets/galeria/foto1.jpg" alt="open space do escritório">
+                        <span class="cap">Open-space</span>
+                      </td>
+                      <td>
+                        <img src="assets/galeria/foto2.jpg" alt="workspace de desenvolvimento">
+                        <span class="cap">Lab de Devs</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="assets/galeria/foto3.jpg" alt="equipe em reunião">
+                        <span class="cap">Time de Ops</span>
+                      </td>
+                      <td>
+                        <img src="assets/galeria/foto4.jpg" alt="sala de servidores">
+                        <span class="cap">Sala de Racks</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- SERVIÇOS -->
+            <section id="servicos" class="yg-panel servicos">
+              <div class="yg-title">O Que Fazemos</div>
+              <div class="yg-body flush">
+                <table class="servicos-split" role="presentation">
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="servicos-col-title">Serviços de Infra</div>
+                        <ul class="servicos-list">
+                          <li>
+                            <img src="assets/servicos/cloud.svg" alt="" class="icon">
+                            <div>
+                              <a class="s-name" href="carrinho.html">Cloud &amp; Hosting</a>
+                              <span class="s-count"> &middot; migração AWS/GCP zero-downtime</span>
+                            </div>
+                          </li>
+                          <li>
+                            <img src="assets/servicos/server.svg" alt="" class="icon">
+                            <div>
+                              <a class="s-name" href="carrinho.html">Gestão de Infra</a>
+                              <span class="s-count"> &middot; operação 24/7 de servidores</span>
+                            </div>
+                          </li>
+                          <li>
+                            <img src="assets/servicos/network.svg" alt="" class="icon">
+                            <div>
+                              <a class="s-name" href="carrinho.html">Redes &amp; Conectividade</a>
+                              <span class="s-count"> &middot; projeto de redes corporativas</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </td>
+                      <td>
+                        <div class="servicos-col-title">Dev &amp; Cybersec</div>
+                        <ul class="servicos-list">
+                          <li class="featured">
+                            <img src="assets/servicos/shield.svg" alt="" class="icon">
+                            <div>
+                              <a class="s-name" href="carrinho.html">Cybersec</a>
+                              <span class="s-new">[novo]</span>
+                              <span class="s-count"> &middot; pentest e resposta a incidentes</span>
+                            </div>
+                          </li>
+                          <li>
+                            <img src="assets/servicos/code.svg" alt="" class="icon">
+                            <div>
+                              <a class="s-name" href="carrinho.html">Dev Sob Demanda</a>
+                              <span class="s-count"> &middot; squads back / front</span>
+                            </div>
+                          </li>
+                          <li>
+                            <img src="assets/servicos/server.svg" alt="" class="icon">
+                            <div>
+                              <a class="s-name" href="carrinho.html">Monitoramento</a>
+                              <span class="s-count"> &middot; 99.997% uptime garantido</span>
+                            </div>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <!-- FUNDADORES -->
+            <section id="fundadores" class="yg-panel">
+              <div class="yg-title">Fundadores <span class="meta">// quem começou tudo, em 1998</span></div>
+              <div class="yg-body flush">
+                <table class="founders-table">
+                  <caption>// quem começou tudo, em 1998</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Cargo</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col">Breve CV</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>CEO &amp; co-fundador</td>
+                      <td>Demetrius Souza</td>
+                      <td>Engenheiro elétrico pela UFF (1996). Começou como técnico de hardware em locadora de vídeo. <strong>15 anos</strong> de consultoria para redes corporativas antes de fundar a casa.</td>
+                    </tr>
+                    <tr>
+                      <td>CTO &amp; co-fundador</td>
+                      <td>Theo Moura</td>
+                      <td>Ciência da computação pela UERJ (1997). Ex-Embratel, onde mantinha os links internacionais nos anos 90. Especialista em redes e <em>sysadmin</em> unix.</td>
+                    </tr>
+                    <tr>
+                      <td>COO &amp; co-fundador</td>
+                      <td>Rafael Menezes</td>
+                      <td>Administração pela PUC-Rio (1998). Responsável pelo caixa, pelos contratos e por convencer os primeiros 20 clientes a pagar mensal, em vez de <mark>por hora</mark>.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+          </td>
+
+          <!-- ========== RIGHT SIDEBAR ========== -->
+          <td class="col-right">
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Em Destaque</div>
+              <div class="yg-body flush yg-featured-game">
+                <div class="img-frame">
+                  <span class="title">Pentest Unlimited</span>
+                  <div class="pseudo-poster"></div>
+                  <span class="subtitle">Auditoria completa em 10 dias</span>
+                </div>
+                <p class="logged-only" style="padding:6px 8px; text-align:center;"><a href="carrinho.html"><strong>Solicitar Agora &raquo;</strong></a></p>
+              </div>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Serviços Populares</div>
+              <ul class="yg-crosslink-list">
+                <li>
+                  <div class="thumb"><img src="assets/servicos/cloud.svg" alt=""></div>
+                  <div>
+                    <a href="carrinho.html"><strong>Cloud Migration</strong></a>
+                    <div class="small muted">a partir de R$ 4.500</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="thumb"><img src="assets/servicos/shield.svg" alt=""></div>
+                  <div>
+                    <a href="carrinho.html"><strong>Pentest Completo</strong></a>
+                    <div class="small muted">a partir de R$ 7.200</div>
+                  </div>
+                </li>
+                <li>
+                  <div class="thumb"><img src="assets/servicos/network.svg" alt=""></div>
+                  <div>
+                    <a href="carrinho.html"><strong>Rede Corporativa</strong></a>
+                    <div class="small muted">a partir de R$ 3.100</div>
+                  </div>
+                </li>
+              </ul>
+              <a class="more-link" href="carrinho.html">Mais Serviços &raquo;</a>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Formas de Pagamento</div>
+              <div class="yg-body" style="text-align:center;">
+                <div class="payments" style="justify-content:center;">
+                  <img src="assets/pagamentos/visa.svg" alt="Visa">
+                  <img src="assets/pagamentos/master.svg" alt="Mastercard">
+                  <img src="assets/pagamentos/pix.svg" alt="Pix">
+                  <img src="assets/pagamentos/boleto.svg" alt="Boleto">
+                </div>
+                <p class="tiny muted" style="margin-top:6px;">Faturamento mensal PJ disponível</p>
+              </div>
+            </section>
+
+            <section class="yg-panel sidebar">
+              <div class="yg-title">Demetrius&amp;co Domain</div>
+              <div class="yg-body" style="font-size:10px;">
+                <p style="font-weight:bold; color:var(--text-label); margin-bottom:4px;">In Depth Look:</p>
+                <p style="color:var(--accent-red); font-weight:bold; margin-bottom:4px;">SHELL SCRIPT</p>
+                <p style="font-size:10px; color:#555;">27 anos escrevendo o mesmo script que roda sua folha de pagamento. <a href="#historia">Saiba mais &raquo;</a></p>
+              </div>
+            </section>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+  <footer id="contato" class="site-footer">
+    <div class="container">
+      <!-- REQUISITO: usar <table> para definir parte do layout. -->
+      <table class="footer-table" role="presentation">
+        <tbody>
+          <tr>
+            <td>
+              <h3>// Contatos</h3>
+              <ul>
+                <li><a href="tel:+552133445566">(21) 3344-5566</a></li>
+                <li><a href="tel:+5521999887766">(21) 99988-7766 (zap)</a></li>
+                <li><a href="mailto:contato@demetrius.co">contato@demetrius.co</a></li>
+              </ul>
+            </td>
+            <td>
+              <h3>// Endereço</h3>
+              <p>Av. Marquês do Paraná, 303<br>Sala 1402 — Centro<br>Niterói / RJ — 24030-210<br>Brasil</p>
+            </td>
+            <td>
+              <h3>// Pagamentos</h3>
+              <div class="payments">
+                <img src="assets/pagamentos/visa.svg" alt="Visa">
+                <img src="assets/pagamentos/master.svg" alt="Mastercard">
+                <img src="assets/pagamentos/pix.svg" alt="Pix">
+                <img src="assets/pagamentos/boleto.svg" alt="Boleto">
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="footer-bottom">Copyright &copy; 1998–2026 demetrius&amp;co. Todos os direitos guardados num servidor que a gente cuida.</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js?v=2"></script>
+</body>
+</html>

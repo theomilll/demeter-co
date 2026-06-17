@@ -1,0 +1,200 @@
+/* ============================================================
+   demetrius&co — base.css
+   Yahoo! Games 2002 portal aesthetic. Variables, reset,
+   typography, links, form controls, buttons.
+   ============================================================ */
+
+:root {
+  /* palette */
+  --navy: #3d5aa8;
+  --navy-dark: #2a4280;
+  --navy-darker: #1b2a5c;
+  --periwinkle: #cfd9ee;
+  --periwinkle-pale: #e6ecf8;
+  --periwinkle-mid: #b9c6e2;
+  --panel-border: #8094c4;
+  --panel-border-dark: #556a9c;
+
+  --link: #0033aa;
+  --link-visited: #663399;
+  --link-hover: #cc0000;
+
+  --text: #000000;
+  --text-muted: #555555;
+  --text-label: #333366;
+  --text-dim: #777777;
+
+  --bg-body: #ffffff;
+  --bg-page: #dfe4f0;
+  --bg-stripe: #f4f6fc;
+
+  --accent-red: #cc0000;
+  --accent-yellow: #ffcc00;
+  --accent-yellow-dark: #d9a900;
+
+  /* fonts — authentic Y2K portal: Verdana first, system fallbacks */
+  --font-body: Verdana, Geneva, "MS Sans Serif", sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
+
+  /* spacing (tighter than retro-cyberpunk version) */
+  --space-1: 2px;
+  --space-2: 4px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 18px;
+  --space-6: 28px;
+}
+
+/* --- reset --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--bg-page);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 11px;
+  line-height: 1.4;
+  min-height: 100vh;
+}
+
+/* margin strip on left edge — mimics Yahoo!'s red vertical stripe */
+body {
+  border-left: 4px solid var(--accent-red);
+}
+
+/* --- typography --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: bold;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+h1 { font-size: 18px; }
+h2 { font-size: 13px; }
+h3 { font-size: 12px; }
+h4 { font-size: 11px; }
+
+p {
+  font-family: var(--font-body);
+  color: var(--text);
+  font-size: 11px;
+  margin-bottom: var(--space-3);
+}
+
+strong { color: #000; font-weight: bold; }
+em { color: var(--navy-dark); font-style: italic; }
+mark { background: var(--accent-yellow); color: #000; padding: 0 2px; }
+code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--periwinkle-pale);
+  padding: 0 3px;
+  border: 1px solid var(--periwinkle-mid);
+}
+
+/* --- links (Yahoo! Games era: underlined, navy, red hover) --- */
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited { color: var(--link-visited); }
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+a:active { color: var(--accent-red); }
+
+/* --- selection --- */
+::selection { background: var(--navy); color: #fff; }
+
+/* --- form controls (Win98 flat) --- */
+button, .btn, input[type="submit"], input[type="button"] {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: bold;
+  background: #ece9d8;
+  color: #000;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #808080;
+  border-bottom: 1px solid #808080;
+  padding: 3px 14px;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+button:hover, .btn:hover {
+  background: #f4f1e0;
+}
+
+button:active, .btn:active {
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+  background: #ddd9c8;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"],
+select,
+textarea {
+  font-family: var(--font-body);
+  font-size: 11px;
+  background: #ffffff;
+  color: #000;
+  border-top: 1px solid #808080;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #d4d0c8;
+  border-bottom: 1px solid #d4d0c8;
+  padding: 2px 4px;
+  width: 100%;
+  outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--navy);
+}
+
+input::placeholder { color: #999; font-style: normal; }
+
+label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--text-label);
+  display: inline-block;
+  margin-bottom: var(--space-1);
+}
+
+/* --- scrollbars: let browser default render, but nudge color --- */
+::-webkit-scrollbar { width: 16px; height: 16px; }
+::-webkit-scrollbar-track { background: var(--periwinkle-pale); }
+::-webkit-scrollbar-thumb {
+  background: var(--periwinkle-mid);
+  border: 1px solid var(--panel-border);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--panel-border); }
+
+/* --- utilities --- */
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.nowrap { white-space: nowrap; }
+.center { text-align: center; }
+.right { text-align: right; }
+.small { font-size: 10px; }
+.tiny { font-size: 9px; }
+.muted { color: var(--text-muted); }
+.red { color: var(--accent-red); }
+.bold { font-weight: bold; }

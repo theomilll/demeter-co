@@ -1,0 +1,1 @@
+frontend:build:cd /Users/theomoura/Documents/coding/university/frontend/projeto/frontend && npm run build

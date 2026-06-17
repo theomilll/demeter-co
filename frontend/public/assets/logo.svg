@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 64" width="260" height="64">
+  <defs>
+    <linearGradient id="glow" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#00f0ff"/>
+      <stop offset="1" stop-color="#ff00aa"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="258" height="62" fill="#0a0a14" stroke="url(#glow)" stroke-width="2"/>
+  <rect x="8" y="8" width="12" height="12" fill="#ff00aa"/>
+  <rect x="24" y="8" width="12" height="12" fill="#00f0ff"/>
+  <rect x="40" y="8" width="12" height="12" fill="#c5ffcc"/>
+  <text x="8" y="48" font-family="'VT323','Courier New',monospace" font-size="28" fill="#00f0ff" letter-spacing="1">
+    demetrius<tspan fill="#ff00aa">&amp;</tspan><tspan fill="#c5ffcc">co</tspan><tspan fill="#00f0ff">_</tspan>
+  </text>
+</svg>

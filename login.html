@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login de Clientes — demetrius&amp;co</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="login-page">
+
+  <div class="terminal-bar">
+    <span>~/demetrius&amp;co/auth/login</span>
+    <span>ssl: ok &middot; 238 clientes online</span>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        <img src="assets/logo.svg" alt="logo demetrius&amp;co" class="logo">
+        <span class="tagline">Área do Cliente<br>Login Seguro</span>
+      </div>
+      <nav aria-label="principal">
+        <a href="index.html">Home</a>
+        <a href="cadastro.html">Cadastrar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <section class="form-panel yg-panel" aria-labelledby="page-title">
+      <div class="panel-head">
+        <img src="assets/logo.svg" alt="logo demetrius&amp;co" class="logo">
+        <h1 id="page-title">Login de Clientes</h1>
+        <p>acesse sua área</p>
+      </div>
+
+      <div class="panel-body">
+        <form id="form-login" novalidate>
+          <div class="field">
+            <label for="login">Login (email)</label>
+            <input type="email" id="login" name="login" autocomplete="email" placeholder="voce@empresa.com.br">
+          </div>
+
+          <div class="field">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" autocomplete="current-password" placeholder="••••••••">
+          </div>
+
+          <div class="actions">
+            <button type="button" id="btn-entrar">Realizar Login</button>
+            <button type="button" id="btn-limpar">Limpar</button>
+          </div>
+
+          <div id="msg" class="msg-box" role="status" aria-live="polite">// aguardando entrada&hellip;</div>
+
+          <div class="extra-links">
+            <a href="troca-senha.html">Trocar Senha</a>
+            <span class="muted">&middot;</span>
+            <a href="cadastro.html">Cadastrar Novo Cliente</a>
+            <br>
+            <a href="index.html" style="margin-top:6px;display:inline-block;">&laquo; Voltar para Home</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-bottom">Copyright &copy; 1998–2026 demetrius&amp;co. Área restrita a clientes cadastrados.</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/validators.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
